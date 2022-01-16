@@ -13,18 +13,18 @@ def calculate_bmi():
 def bmi_index(bmi):
     
     if bmi < 18.5:
-        messagebox.showinfo('bmi-pythonguides', f'BMI = {bmi} is Underweight')
+        messagebox.showinfo('bmi-', f'BMI = {bmi} is Underweight')
     elif (bmi > 18.5) and (bmi < 24.9):
-        messagebox.showinfo('bmi-pythonguides', f'BMI = {bmi} is Normal')
+        messagebox.showinfo('bmi-', f'BMI = {bmi} is Normal')
     elif (bmi > 24.9) and (bmi < 29.9):
-        messagebox.showinfo('bmi-pythonguides', f'BMI = {bmi} is Overweight')
+        messagebox.showinfo('bmi-computerscience', f'BMI = {bmi} is Overweight')
     elif (bmi > 29.9):
-        messagebox.showinfo('bmi-pythonguides', f'BMI = {bmi} is Obese') 
+        messagebox.showinfo('bmi-computerscience', f'BMI = {bmi} is Obese') 
     else:
-        messagebox.showerror('bmi-pythonguides', 'something went wrong!')   
+        messagebox.showerror('bmi-computerscience', 'something went wrong!')   
         
 ws = Tk()
-ws.title('PythonGuides')
+ws.title('bmi-computerscience')
 ws.geometry('400x300')
 ws.config(bg='#686e70')
 
@@ -62,18 +62,18 @@ cal_btn = Button(
 )
 cal_btn.pack(side=LEFT)
 
-reset_btn = Button(
+reset_button = Button(
     frame3,
     text='Reset',
     command=reset_entry
 )
-reset_btn.pack(side=LEFT)
+reset_button.pack(side=LEFT)
 
-exit_btn = Button(
+exit_button = Button(
     frame3,
     text='Exit',
     command=lambda:ws.destroy()
 )
-exit_btn.pack(side=RIGHT)
+exit_button.pack(side=RIGHT)
 
 ws.mainloop()
