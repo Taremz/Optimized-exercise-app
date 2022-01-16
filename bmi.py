@@ -22,6 +22,14 @@ def bmi_index(bmi):
         messagebox.showinfo('bmi-pythonguides', f'BMI = {bmi} is Obese') 
     else:
         messagebox.showerror('bmi-pythonguides', 'something went wrong!')   
+        
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('400x300')
+ws.config(bg='#686e70')
+
+var = IntVar()
+
 
 height_lb.grid(row=3, column=1)
 
