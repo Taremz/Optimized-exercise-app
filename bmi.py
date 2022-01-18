@@ -1,79 +1,38 @@
-import healthsignup
-import height
-import weight
+import tkinter
 
+root = tkinter.Tk()
+root.title("bmi calculator")
+ 
 
 def calculate_bmi():
-    kg = int(weight_tf.get())
-    m = int(height_tf.get())/100
-    bmi = kg/(m*m)
-    bmi = round(bmi, 1)
-    bmi_index(bmi)
-
-def bmi_index(bmi):
-    
-    if bmi < 18.5:
-        messagebox.showinfo('bmi-', f'BMI = {bmi} is Underweight')
-    elif (bmi > 18.5) and (bmi < 24.9):
-        messagebox.showinfo('bmi-', f'BMI = {bmi} is Normal')
-    elif (bmi > 24.9) and (bmi < 29.9):
-        messagebox.showinfo('bmi-computerscience', f'BMI = {bmi} is Overweight')
-    elif (bmi > 29.9):
-        messagebox.showinfo('bmi-computerscience', f'BMI = {bmi} is Obese') 
-    else:
-        messagebox.showerror('bmi-computerscience', 'something went wrong!')   
-        
-ws = Tk()
-ws.title('bmi-computerscience')
-ws.geometry('400x300')
-ws.config(bg='#686e70')
-
-var = IntVar()
+    kg = float(entry_kg.get())
+    height = float(entry_height.get())
+    bmi = round( kg/ (height **  2))
+    label_result['text'] = f"BMI: {bmi}"  
 
 
-height_lb.grid(row=3, column=1)
+label_kg = tkinter.Label(root, text = "Weight Kg:")
+label_kg.grid(column=0, row = 0)
 
-weight_lb = Label(
-    frame,
-    text="Enter Weight (kg)  ",
+entry_kg = tkinter.Entry(root)
+entry_kg.grid(column=1, row = 0)
 
-)
-weight_lb.grid(row=4, column=1)
+label_height = tkinter.Label(root, text = "Height: ")
+label_height.grid(column=0, row = 1)
+ 
+entry_height = tkinter.Entry(root)
+entry_height.grid(column=1, row = 1)
 
-height_tf = Entry(
-    frame,
-)
-height_tf.grid(row=3, column=2, pady=5)
+button_calculate = tkinter.Button(root, text="Calculate", command=calculate_bmi)
+button_calculate.grid(column=0, row = 2)
+   
+label_result = tkinter.Label(root, text = "BMI: ")
+label_result.grid(column=1, row = 2 )
 
-weight_tf = Entry(
-    frame,
-)
-weight_tf.grid(row=4, column=2, pady=5)
+root.mainloop()
 
-frame3 = Frame(
-    frame
-)
-frame3.grid(row=5, columnspan=3, pady=10)
 
-cal_btn = Button(
-    frame3,
-    text='Calculate',
-    command=calculate_bmi
-)
-cal_btn.pack(side=LEFT)
 
-reset_button = Button(
-    frame3,
-    text='Reset',
-    command=reset_entry
-)
-reset_button.pack(side=LEFT)
 
-exit_button = Button(
-    frame3,
-    text='Exit',
-    command=lambda:ws.destroy()
-)
-exit_button.pack(side=RIGHT)
+ 
 
-ws.mainloop()
